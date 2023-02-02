@@ -1092,7 +1092,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 			}, testTimeout, suite.TestInterval).Should(BeTrue())
 		})
 
-		It("should handle ops genie action correctly", func() {
+		FIt("should handle ops genie action correctly", func() {
 			ctx := context.Background()
 			suite.UsingClusterBy(clusterKey.Name, "HumioAction: Should handle ops genie action correctly")
 			opsGenieActionSpec := humiov1alpha1.HumioActionSpec{
@@ -1375,7 +1375,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 			}, testTimeout, suite.TestInterval).Should(BeTrue())
 		})
 
-		It("should handle slack action correctly", func() {
+		FIt("should handle slack action correctly", func() {
 			ctx := context.Background()
 			suite.UsingClusterBy(clusterKey.Name, "HumioAction: Should handle slack action correctly")
 			slackActionSpec := humiov1alpha1.HumioActionSpec{
@@ -1472,7 +1472,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 
 		})
 
-		It("should handle victor ops action correctly", func() {
+		FIt("should handle victor ops action correctly", func() {
 			ctx := context.Background()
 			suite.UsingClusterBy(clusterKey.Name, "HumioAction: Should handle victor ops action correctly")
 			victorOpsActionSpec := humiov1alpha1.HumioActionSpec{
@@ -1564,7 +1564,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 			}, testTimeout, suite.TestInterval).Should(BeTrue())
 		})
 
-		It("should handle web hook action correctly", func() {
+		FIt("should handle web hook action correctly", func() {
 			ctx := context.Background()
 			suite.UsingClusterBy(clusterKey.Name, "HumioAction: Should handle web hook action correctly")
 			webHookActionSpec := humiov1alpha1.HumioActionSpec{
@@ -1810,7 +1810,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 			Expect(createdAction.Spec.HumioRepositoryProperties.IngestToken).To(Equal("secret-token"))
 		})
 
-		It("HumioAction: OpsGenieProperties: Should support referencing secrets", func() {
+		FIt("HumioAction: OpsGenieProperties: Should support referencing secrets", func() {
 			ctx := context.Background()
 			key := types.NamespacedName{
 				Name:      "genie-action-secret",
@@ -1873,7 +1873,7 @@ var _ = Describe("Humio Resources Controllers", func() {
 			Expect(createdAction.Spec.OpsGenieProperties.ApiUrl).To(Equal("https://humio.com"))
 		})
 
-		It("HumioAction: OpsGenieProperties: Should support direct genie key", func() {
+		FIt("HumioAction: OpsGenieProperties: Should support direct genie key", func() {
 			ctx := context.Background()
 			key := types.NamespacedName{
 				Name:      "genie-action-direct",

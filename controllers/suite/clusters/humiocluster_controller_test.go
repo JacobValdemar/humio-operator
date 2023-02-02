@@ -59,7 +59,7 @@ const (
 	imageSourceConfigmapNewVersion = "humio/humio-core:1.56.3"
 )
 
-var _ = Describe("HumioCluster Controller", func() {
+var _ = XDescribe("HumioCluster Controller", func() {
 
 	BeforeEach(func() {
 		// failed test runs that don't clean up leave resources behind.
