@@ -1,15 +1,17 @@
 FROM ubuntu:20.04
+ARG TARGETPLATFORM
+ARG TARGETARCH
 
 # Install make and curl
 RUN apt update \
  && apt install -y build-essential curl
 
 # Install go
-RUN curl -s https://dl.google.com/go/go1.18.7.linux-amd64.tar.gz | tar -xz -C /usr/local
+RUN curl -s https://dl.google.com/go/go1.18.7.linux-arm64.tar.gz | tar -xz -C /usr/local
 RUN ln -s /usr/local/go/bin/go /usr/bin/go
 
 # Install kind
-RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.16.0/kind-linux-amd64 \
+RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.16.0/kind-linux-arm64 \
  && chmod +x ./kind \
  && mv ./kind /usr/bin/kind
 
@@ -22,7 +24,7 @@ RUN apt-get install -y \
     lsb-release
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 RUN echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update \
  && apt-get install -y docker-ce-cli

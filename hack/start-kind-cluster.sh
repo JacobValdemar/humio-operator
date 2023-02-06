@@ -2,7 +2,7 @@
 
 set -x
 
-kind create cluster --name kind --image kindest/node:v1.24.7@sha256:5c015142d9b60a0f6c45573f809957076514e38ec973565e2b2fe828b91597f5
+kind create cluster --name kind --image kindest/node:v1.24.7@sha256:577c630ce8e509131eab1aea12c022190978dd2f745aac5eb1fe65c0807eb315
 
 sleep 5
 
